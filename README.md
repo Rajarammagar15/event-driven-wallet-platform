@@ -29,9 +29,33 @@ A distributed wallet platform built using Spring Boot, Kafka, Redis, PostgreSQL,
 - Apache Kafka
 - Docker
 
+## Current Services
+
+### Wallet Service
+- Create Wallet
+- Credit Wallet
+- Debit Wallet
+- Get Balance
+- Redis Cache
+- PostgreSQL
+- Kafka Producer
+
+### Notification Service
+- Kafka Consumer
+- Consumer Group
+- Notification Processing
+- PostgreSQL Persistence
+
+## Infrastructure
+
+- Kafka
+- Zookeeper
+- PostgreSQL
+- Redis
+- Docker Compose
+
 ## Future Services
 
-- Notification Service
 - Audit Service
 - Fraud Service
 - Reporting Service
