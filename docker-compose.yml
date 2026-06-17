@@ -2,47 +2,70 @@ version: '3.8'
 
 services:
 
+#postgres
   postgres:
     image: postgres:16
     container_name: wallet-postgres
-
     environment:
       POSTGRES_DB: walletdb
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
-
     ports:
       - "5433:5432"
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
 
+
+#redis
   redis:
     image: redis:latest
     container_name: wallet-redis
-
     ports:
       - "6379:6379"
+    volumes:
+      - redis-data:/data
 
+
+#zookeeper
   zookeeper:
     image: confluentinc/cp-zookeeper:7.5.0
     container_name: wallet-zookeeper
-
     environment:
       ZOOKEEPER_CLIENT_PORT: 2181
-
     ports:
       - "2181:2181"
 
+
+#kafka
   kafka:
     image: confluentinc/cp-kafka:7.5.0
     container_name: wallet-kafka
-
     depends_on:
       - zookeeper
-
     ports:
       - "9092:9092"
-
     environment:
       KAFKA_BROKER_ID: 1
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
       KAFKA_ADVERTISED_LISTENERS: PLAINTEXT://localhost:9092
       KAFKA_OFFSETS_TOPIC_REPLICATION_FACTOR: 1
+
+
+#mongodb
+  mongodb:
+    image: mongo:8.0
+    container_name: wallet-mongodb
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin
+    volumes:
+      - mongo-data:/data/db
+
+
+#volumes
+volumes:
+  postgres-data:
+  redis-data:
+  mongo-data:
