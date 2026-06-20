@@ -1,6 +1,6 @@
 package com.raj.audit.service;
 
-import com.raj.audit.dto.WalletTransactionEvent;
+import com.raj.events.WalletTransactionEvent;
 import com.raj.audit.entity.AuditTransactionLog;
 import com.raj.audit.mapper.AuditMapper;
 import com.raj.audit.repository.AuditRepository;

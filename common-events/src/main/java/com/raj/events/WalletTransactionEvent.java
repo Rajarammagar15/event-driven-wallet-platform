@@ -1,4 +1,4 @@
-package com.raj.notification.dto;
+package com.raj.events;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

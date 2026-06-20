@@ -1,6 +1,6 @@
 package com.raj.notification.service;
 
-import com.raj.notification.dto.WalletTransactionEvent;
+import com.raj.events.WalletTransactionEvent;
 import com.raj.notification.entity.NotificationEventLog;
 import com.raj.notification.repository.NotificationRepository;
 import lombok.RequiredArgsConstructor;
@@ -35,6 +35,7 @@ public class NotificationProcessor {
                         .message(message)
                         .transactionType(
                                 event.getTransactionType())
+                        .notificationType("TRANSACTION_ALERT")
                         .status("SENT")
                         .createdAt(
                                 LocalDateTime.now())

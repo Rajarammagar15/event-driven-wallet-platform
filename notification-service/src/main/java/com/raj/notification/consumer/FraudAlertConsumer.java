@@ -1,29 +1,29 @@
 package com.raj.notification.consumer;
 
-import com.raj.events.WalletTransactionEvent;
-import com.raj.notification.service.NotificationProcessor;
+import com.raj.events.FraudAlertEvent;
+import com.raj.notification.service.FraudAlertProcessor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.kafka.annotation.KafkaListener;
 import org.springframework.stereotype.Component;
 
-@Slf4j
 @Component
 @RequiredArgsConstructor
-public class WalletTransactionConsumer {
+@Slf4j
+public class FraudAlertConsumer {
 
-    private final NotificationProcessor notificationProcessor;
+    private final FraudAlertProcessor fraudAlertProcessor;
 
     @KafkaListener(
-            topics = "wallet-transactions",
+            topics = "fraud-alerts",
             groupId = "notification-group")
     public void consume(
-            WalletTransactionEvent event) {
+            FraudAlertEvent event) {
 
         log.info(
-                "Received Event : {}",
+                "Fraud Alert Received : {}",
                 event);
 
-        notificationProcessor.process(event);
+        fraudAlertProcessor.process(event);
     }
 }

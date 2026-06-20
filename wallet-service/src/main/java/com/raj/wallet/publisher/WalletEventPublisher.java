@@ -1,6 +1,6 @@
 package com.raj.wallet.publisher;
 
-import com.raj.wallet.dto.WalletTransactionEvent;
+import com.raj.events.WalletTransactionEvent;
 import lombok.RequiredArgsConstructor;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -11,7 +11,7 @@ public class WalletEventPublisher {
 
     private final KafkaTemplate<
                 String,
-                WalletTransactionEvent> kafkaTemplate;
+            WalletTransactionEvent> kafkaTemplate;
 
     private static final String TOPIC =
             "wallet-transactions";

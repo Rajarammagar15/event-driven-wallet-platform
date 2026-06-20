@@ -1,5 +1,6 @@
 package com.raj.wallet.service.impl;
 
+import com.raj.events.WalletTransactionEvent;
 import com.raj.wallet.dto.*;
 import com.raj.wallet.entity.TransactionType;
 import com.raj.wallet.entity.Wallet;

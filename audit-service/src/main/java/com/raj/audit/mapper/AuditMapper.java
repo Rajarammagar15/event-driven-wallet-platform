@@ -1,6 +1,6 @@
 package com.raj.audit.mapper;
 
-import com.raj.audit.dto.WalletTransactionEvent;
+import com.raj.events.WalletTransactionEvent;
 import com.raj.audit.entity.AuditTransactionLog;
 import org.springframework.stereotype.Component;
 

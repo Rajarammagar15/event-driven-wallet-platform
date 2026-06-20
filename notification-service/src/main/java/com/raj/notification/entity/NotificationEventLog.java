@@ -29,6 +29,8 @@ public class NotificationEventLog {
 
     private String transactionType;
 
+    private String notificationType;
+
     private String status;
 
     private LocalDateTime createdAt;

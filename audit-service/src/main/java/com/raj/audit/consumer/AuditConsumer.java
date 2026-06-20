@@ -1,6 +1,6 @@
 package com.raj.audit.consumer;
 
-import com.raj.audit.dto.WalletTransactionEvent;
+import com.raj.events.WalletTransactionEvent;
 import com.raj.audit.service.AuditProcessor;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;

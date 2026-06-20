@@ -1,18 +1,18 @@
-package com.raj.wallet.dto;
+package com.raj.events;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class WalletTransactionEvent {
+public class FraudAlertEvent {
 
     private UUID transactionId;
 
@@ -20,11 +20,9 @@ public class WalletTransactionEvent {
 
     private String customerId;
 
-    private BigDecimal amount;
+    private String rule;
 
-    private String transactionType;
+    private Integer riskScore;
 
-    private String status;
-
-    private String eventTime;
+    private String createdAt;
 }
