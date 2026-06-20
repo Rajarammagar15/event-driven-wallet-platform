@@ -13,6 +13,7 @@ A distributed wallet platform built using Spring Boot, Kafka, Redis, PostgreSQL,
 - Pessimistic Locking
 - Notification Consumer
 - Audit Consumer
+- Fraud Service and Fraud Alerts 
 
 ## Architecture
 
@@ -25,11 +26,12 @@ A distributed wallet platform built using Spring Boot, Kafka, Redis, PostgreSQL,
 ## Tech Stack
 
 - Java 21
-- Spring Boot 3
+- Spring Boot 4
 - PostgreSQL
 - Redis
 - Apache Kafka
 - Docker
+- MongoDB
 
 ## Current Services
 
@@ -40,7 +42,7 @@ A distributed wallet platform built using Spring Boot, Kafka, Redis, PostgreSQL,
 - Get Balance
 - Redis Cache
 - PostgreSQL
-- Kafka Producer
+- Wallet Transaction published to Kafka Topic
 
 ### Notification Service
 - Kafka Consumer
@@ -54,8 +56,16 @@ A distributed wallet platform built using Spring Boot, Kafka, Redis, PostgreSQL,
 - Audit Log Processing
 - MongoDB Persistence
 
-## Infrastructure
+### Fraud Service
+- Kafka Consumer
+- Consumer Group
+- Fraud Log Processing
+- MongoDB Persistence
+- Fraud Alert published to Kafka Topic
+- Notification Service to Consume, Send and Persist log to Postgre
 
+
+## Infrastructure
 - Kafka
 - Zookeeper
 - PostgreSQL
@@ -64,6 +74,4 @@ A distributed wallet platform built using Spring Boot, Kafka, Redis, PostgreSQL,
 - MongoDB
 
 ## Future Services
-
-- Fraud Service
 - Reporting Service
